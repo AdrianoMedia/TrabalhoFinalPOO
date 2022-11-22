@@ -57,7 +57,7 @@ public abstract class Servia implements NationalTeamInfos {
 				velho = j;
 			}
 		}
-		return velho;
+		return velho.getNumero();
 		
 	}
 	
@@ -68,7 +68,7 @@ public abstract class Servia implements NationalTeamInfos {
 				novo = j;
 			}
 		}
-		return novo;
+		return novo.getNumero();
 	}
 	
 	public double getAverageAge() {
