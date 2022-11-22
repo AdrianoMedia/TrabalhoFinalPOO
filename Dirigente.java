@@ -1,5 +1,5 @@
 
-public class Dirigente extends Servia {
+public abstract class Dirigente extends Servia {
 	private String nome;
 	private String telefone;
 	private String email;
