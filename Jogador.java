@@ -10,7 +10,7 @@ public class Jogador extends Servia {
 	private String posicao;
 	private String clubAtual;
 	
-	public Jogador(int qtdJogadores, int qtdComTec, int qtdDirigente, String nome, String apelido, int idade, float altura,
+	public Jogador(String nome, String apelido, int idade, float altura,
 			float peso, LocalDate dataAniver, String posicao, String clubAtual) {
 		super();
 		this.setAltura(altura);
@@ -79,7 +79,7 @@ public class Jogador extends Servia {
 		if (posicao != null && !posicao.isBlank()) {
 		this.posicao = posicao;
 		} else
-			throw new IllegalArgumentException("PosiÁ„o inv·lida, n„o tente novamente");
+			throw new IllegalArgumentException("Posi√ß√£o inv√°lida, n√£o tente novamente");
 	}
 	public String getClubAtual() {
 		return clubAtual;
@@ -88,7 +88,7 @@ public class Jogador extends Servia {
 		if (clubAtual != null && !clubAtual.isBlank()) {
 		this.clubAtual = clubAtual;
 		} else
-			throw new IllegalArgumentException("Insira um Clube v·lido");
+			throw new IllegalArgumentException("Insira um Clube v√°lido");
 	}
 	
 	
