@@ -5,7 +5,7 @@ public class ComissaoTecnica extends Servia {
 	private String role;
 	private int idade;
 	
-	public ComissaoTecnica(int qtdJogadores, int qtdComTec, int qtdDirigente, String nome, String apelido, String role, int idade) {
+	public ComissaoTecnica(String nome, String apelido, String role, int idade) {
 		super();
 		this.setApelido(apelido);
 		this.setIdade(idade);
@@ -21,7 +21,7 @@ public class ComissaoTecnica extends Servia {
 		if (nome != null && !nome.isBlank()) {
 		this.nome = nome;
 		} else
-			throw new IllegalArgumentException("Nome inv·lido");
+			throw new IllegalArgumentException("Nome inv√°lido");
 	}
 
 	public String getApelido() {
@@ -32,7 +32,7 @@ public class ComissaoTecnica extends Servia {
 		if (apelido != null && !apelido.isBlank()) {
 		this.apelido = apelido;
 		} else
-			throw new IllegalArgumentException("Apelido inv·lido");
+			throw new IllegalArgumentException("Apelido inv√°lido");
 	}
 
 	public String getRole() {
@@ -43,7 +43,7 @@ public class ComissaoTecnica extends Servia {
 		if (role != null && !role.isBlank()) {
 		this.role = role;
 		} else
-			throw new IllegalArgumentException("Role inv·lida, insira uma role existente");
+			throw new IllegalArgumentException("Role inv√°lida, insira uma role existente");
 	}
 
 	public int getIdade() {
