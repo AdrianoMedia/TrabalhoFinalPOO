@@ -1,5 +1,5 @@
 
-public class ComissaoTecnica extends Servia {
+public abstract class ComissaoTecnica extends Servia {
 	private String nome;
 	private String apelido;
 	private String role;
