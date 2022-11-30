@@ -1,39 +1,35 @@
+package module_servia;
 import java.awt.Image;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import org.json.simple.JSONObject;
-
 import fifa.NationalTeamInfos;
 import fifa.NationalTeamStats;
 
-public abstract class Servia implements NationalTeamInfos {
-	private HashMap<Integer, Jogador> jogadores = new HashMap<>();
+public class Servia implements NationalTeamInfos, NationalTeamStats {
+	private ArrayList<Jogador> jogadores = new ArrayList<>();
 	private ArrayList<Dirigente> dirigentes = new ArrayList<>();
 	private ArrayList<ComissaoTecnica> comissao = new ArrayList<>();
-	private Jogador jor;
-	private Dirigente dir;
-	private ComissaoTecnica ct;
+	private int NumberOfCalls;
 	
 	public Servia() {
 		super();
 	}
-	
-	public HashMap<Integer, Jogador> getJogadores() {
+
+	public ArrayList<Jogador> getJogadores() {
 		return this.jogadores;
 	}
-	 
-	public void addJogador(Jogador j) {
-		if(!jogadores.containsKey(j.getNumero())) {
-			jogadores.put(j.getNumero(), j);
-		}
-	}
 	
+    public void addJogador(Jogador j) {
+		Jogador j1 = new Jogador("b", "c", 1, 2, 3, LocalDate.of(1995, 11, 02), "aa", "lk");
+		jogadores.add(j1);
+	}
+		
+	 
 	public ArrayList<Dirigente> getDirigentes(){
 		return this.dirigentes;
 	}
@@ -46,13 +42,18 @@ public abstract class Servia implements NationalTeamInfos {
 		return this.comissao;
 	}
 	
+	public void addComissao(ComissaoTecnica ct) {
+		comissao.add(ct);
+	}
+	
 	public int getHowManyMembers() {
 		return jogadores.size();
 	}
 	
 	public int getOldestPlayer() {
+		NumberOfCalls++;
 		Jogador velho = null;
-		for (Jogador j: jogadores.values()) {
+		for (Jogador j: jogadores) {
 			if (velho == null || j.getIdade() > velho.getIdade()) {
 				velho = j;
 			}
@@ -62,8 +63,9 @@ public abstract class Servia implements NationalTeamInfos {
 	}
 	
 	public int getYoungestPlayer() {
+		NumberOfCalls++;
 		Jogador novo = null;
-		for (Jogador j: jogadores.values()) {
+		for (Jogador j: jogadores) {
 			if (novo == null || j.getIdade() > novo.getIdade()) {
 				novo = j;
 			}
@@ -72,24 +74,29 @@ public abstract class Servia implements NationalTeamInfos {
 	}
 	
 	public double getAverageAge() {
+		NumberOfCalls++;
 		double media = 0;
-		for (Jogador j: jogadores.values()) {
+		for (Jogador j: jogadores) {
 			media += j.getIdade();
 		}
 		return media / jogadores.size();
 	}
 	
 	public String getCountryName() {
-		return "SÃ©rvia";
+		NumberOfCalls++;
+		return "Sérvia";
 	}
 	
 	public Image getFlagImage() {
+		NumberOfCalls++;
 		return null;
 	}
 	
 	public String getPlayer(int number) {
+		NumberOfCalls++;
 		JSONObject objetoJson = new JSONObject();
 		
+		for (Jogador jor: jogadores) {
 		objetoJson.put("number", jor.getNumero());
 		objetoJson.put("name", jor.getNome());
 		objetoJson.put("nickname", jor.getApelido());
@@ -98,6 +105,7 @@ public abstract class Servia implements NationalTeamInfos {
 		objetoJson.put("birthDate", jor.getDataAniver());
 		objetoJson.put("position", jor.getPosicao());
 		objetoJson.put("currentClub", jor.getClubAtual());
+		}
 		try {
 			FileWriter writeFile = new FileWriter("Dados_Jogadores.json");
 			writeFile.write(objetoJson.toJSONString());
@@ -106,17 +114,19 @@ public abstract class Servia implements NationalTeamInfos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return objetoJson.toJSONString();
 	}
 	
 	public String getPressOfficerContacts() {
+		NumberOfCalls++;
 		JSONObject objJson = new JSONObject();
 		
+		for (Dirigente dir: dirigentes) {
 		objJson.put("name", dir.getNome());
 		objJson.put("tel1", dir.getTelefone());
 		objJson.put("tel2", dir.getTelefone());
 		objJson.put("emailAccount", dir.getEmail());
-		
+		}
 		try {
 			FileWriter escrever = new FileWriter("Dados_Assessor_da_Imprensa.json");
 			escrever.write(objJson.toJSONString());
@@ -125,19 +135,20 @@ public abstract class Servia implements NationalTeamInfos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return objJson.toJSONString();
 		
 	}
 	
 	public Path getTechnicalCommittee() {
-		
+		NumberOfCalls++;
 		JSONObject objeJson = new JSONObject();
 		
+		for (ComissaoTecnica ct: comissao) {
 		objeJson.put("name", ct.getNome());
 		objeJson.put("nickname", ct.getApelido());
 		objeJson.put("role", ct.getRole());
 		objeJson.put("age", ct.getIdade());
-		
+		}
 		try {
 			FileWriter write = new FileWriter("Dados_Comissao_Tecnica.json");
 			write.write(objeJson.toJSONString());
@@ -150,5 +161,16 @@ public abstract class Servia implements NationalTeamInfos {
 		return Paths.get("Dados_Comissao_Tecnica.json");
 	}
 	
-	public abstract NationalTeamStats getStatsResponsible();
+	public NationalTeamStats getStatsResponsible() {
+		NationalTeamStats national = new Servia();
+		return national;
+	}
+	
+	public int getHowManyQuestions() {
+		return NumberOfCalls;
+	}
+	
+	public int getHowManyCallsToPlayer(int number) {
+		return 0;
+	}
 }

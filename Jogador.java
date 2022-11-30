@@ -1,6 +1,8 @@
+package module_servia;
 import java.time.LocalDate;
+import java.util.HashMap;
 
-public abstract class Jogador extends Servia {
+public class Jogador extends Servia {
 	private int number;
 	private String name;
 	private String nickname;
@@ -90,7 +92,7 @@ public abstract class Jogador extends Servia {
 		if (posicao != null && !posicao.isBlank()) {
 		this.posicion = posicao;
 		} else
-			throw new IllegalArgumentException("Posi√ß√£o inv√°lida, n√£o tente novamente");
+			throw new IllegalArgumentException("PosiÁ„o inv·lida, n„o tente novamente");
 	}
 	public String getClubAtual() {
 		return currentClub;
@@ -99,7 +101,7 @@ public abstract class Jogador extends Servia {
 		if (clubAtual != null && !clubAtual.isBlank()) {
 		this.currentClub = clubAtual;
 		} else
-			throw new IllegalArgumentException("Insira um Clube v√°lido");
+			throw new IllegalArgumentException("Insira um Clube v·lido");
 	}
 	
 	
