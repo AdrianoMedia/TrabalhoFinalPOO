@@ -21,7 +21,7 @@ public class ComissaoTecnica extends Servia {
 		if (nome != null && !nome.isBlank()) {
 		this.nome = nome;
 		} else
-			throw new IllegalArgumentException("Nome inválido");
+			throw new IllegalArgumentException("Nome invÃ¡lido");
 	}
 
 	public String getApelido() {
@@ -32,7 +32,7 @@ public class ComissaoTecnica extends Servia {
 		if (apelido != null && !apelido.isBlank()) {
 		this.apelido = apelido;
 		} else
-			throw new IllegalArgumentException("Apelido inválido");
+			throw new IllegalArgumentException("Apelido invÃ¡lido");
 	}
 
 	public String getRole() {
@@ -43,7 +43,7 @@ public class ComissaoTecnica extends Servia {
 		if (role != null && !role.isBlank()) {
 		this.role = role;
 		} else
-			throw new IllegalArgumentException("Role inválida, insira uma role existente");
+			throw new IllegalArgumentException("Role invÃ¡lida, insira uma role existente");
 	}
 
 	public int getIdade() {
@@ -54,8 +54,6 @@ public class ComissaoTecnica extends Servia {
 		if (idade > 0) {
 		this.idade = idade;
 		}
-	}
-	
-	
+	}	
 	
 }

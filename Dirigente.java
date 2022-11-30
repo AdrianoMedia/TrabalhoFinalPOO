@@ -19,7 +19,7 @@ public class Dirigente extends Servia {
 		if (nome != null && !nome.isBlank()) {
 		this.nome = nome;
 		} else
-			throw new IllegalArgumentException("Nome inv·lido ou em branco");
+			throw new IllegalArgumentException("Nome inv√°lido ou em branco");
 	}
 
 	public String getTelefone() {
@@ -30,7 +30,7 @@ public class Dirigente extends Servia {
 		if (telefone != null && !telefone.isBlank()) {
 		this.telefone = telefone;
 		} else
-			throw new IllegalArgumentException("N˙mero de telefone inv·lido");
+			throw new IllegalArgumentException("N√∫mero de telefone inv√°lido");
 	}
 
 	public String getEmail() {
@@ -41,10 +41,9 @@ public class Dirigente extends Servia {
 		if (email != null && !email.isBlank()) {
 		this.email = email;
 		} else
-			throw new IllegalArgumentException("Email inv·lido");
+			throw new IllegalArgumentException("Email inv√°lido");
 	}
 	
-	
-	
+
 	
 }

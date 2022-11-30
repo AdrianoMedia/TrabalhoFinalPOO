@@ -1,6 +1,5 @@
 package module_servia;
 import java.time.LocalDate;
-import java.util.HashMap;
 
 public class Jogador extends Servia {
 	private int number;
@@ -13,17 +12,18 @@ public class Jogador extends Servia {
 	private String posicion;
 	private String currentClub;
 	
-	public Jogador(String nome, String apelido, int idade, float altura,
-			float peso, LocalDate dataAniver, String posicao, String clubAtual) {
+	public Jogador(int number, String name, String nickname, float height, float weigth, int age,
+			 LocalDate birthDate, String posicion, String currentClub) {
 		super();
-		this.setAltura(altura);
-		this.setApelido(apelido);
-		this.setClubAtual(clubAtual);
-		this.setDataAniver(dataAniver);
-		this.setIdade(idade);
-		this.setPeso(peso);
-		this.setNome(nome);
-		this.setPosicao(posicao);
+		this.setAltura(height);
+		this.setApelido(nickname);
+		this.setClubAtual(currentClub);
+		this.setDataAniver(birthDate);
+		this.setIdade(age);
+		this.setPeso(weight);
+		this.setNome(name);
+		this.setPosicao(posicion);
+		this.setNumero(number);
 	}
 	
 	public int getNumero() {
@@ -92,7 +92,7 @@ public class Jogador extends Servia {
 		if (posicao != null && !posicao.isBlank()) {
 		this.posicion = posicao;
 		} else
-			throw new IllegalArgumentException("PosiÁ„o inv·lida, n„o tente novamente");
+			throw new IllegalArgumentException("Posi√ß√£o inv√°lida, n√£o tente novamente");
 	}
 	public String getClubAtual() {
 		return currentClub;
@@ -101,8 +101,10 @@ public class Jogador extends Servia {
 		if (clubAtual != null && !clubAtual.isBlank()) {
 		this.currentClub = clubAtual;
 		} else
-			throw new IllegalArgumentException("Insira um Clube v·lido");
+			throw new IllegalArgumentException("Insira um Clube v√°lido");
 	}
+	
+	
 	
 	
 }
