@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -57,15 +59,8 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		return this.comissao;
 	}
 	
-	public void addComissaoTecnica() {
-		ComissaoTecnica ct1 = new ComissaoTecnica("Dragan Stojkovic", "Drogon", "Couch", 57);
-		comissao.add(ct1);
-		ComissaoTecnica ct2 = new ComissaoTecnica("Nikita Minaj", "Minaj", "Nutritionist", 34);
-		comissao.add(ct2);
-		ComissaoTecnica ct3 = new ComissaoTecnica("Joseph Sneg", "Jow", "Observer", 48);
-		comissao.add(ct3);
-		System.out.println("rodrigo faro");
-	}
+	//public void addComissaoTecnica() {
+	//}
 	
 	public int getHowManyMembers() {
 		Jogador j1 = new Jogador(1, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(1992 , 10 , 2), "goalkeeper", "Flamengo");
@@ -90,7 +85,12 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		jogadores.add(j10);
 		Jogador j11 = new Jogador(11, "Chip", "Jorge", 111, 89, 60, LocalDate.of(2000 , 5 , 23), "center-forward", "Vasco");
 		jogadores.add(j11);
-		
+		ComissaoTecnica ct1 = new ComissaoTecnica("Dragan Stojkovic", "Drogon", "Couch", 57);
+		comissao.add(ct1);
+		ComissaoTecnica ct2 = new ComissaoTecnica("Nikita Minaj", "Minaj", "Nutritionist", 34);
+		comissao.add(ct2);
+		ComissaoTecnica ct3 = new ComissaoTecnica("Joseph Sneg", "Jow", "Observer", 48);
+		comissao.add(ct3);
 		Dirigente d1 = new Dirigente("Henry Avery", "+381 40028922", "henry@fss.com.rs");
 		dirigentes.add(d1);
 		Dirigente d2 = new Dirigente("Srdan Babic", "+381 73556089", "srdan@fss.com.rs");
@@ -101,16 +101,13 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 	public int getOldestPlayer() {
 		numberOfCalls++;
 		Jogador velho = null;
-		int numero = 0;
 		for (Jogador j: jogadores) {
 			if (velho == null 
 					 || j.getIdade() > velho.getIdade()) {
 				velho = j;
 			}
-			numero = velho.getNumero();
 		}
-		System.out.println("jorge");
-		return numero;
+		return velho.getNumero();
 		
 	}
 	
@@ -123,7 +120,6 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 				novo = j;
 			}
 		}
-		System.out.println("assembly hater");
 		return novo.getNumero();
 	}
 	
@@ -142,19 +138,27 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 	}
 	
 	public Image getFlagImage() {
-		BufferedImage img = null;
+		Image image = null;
+		URL url = null;
 		try {
-		    img = ImageIO.read(new File("Servia.jpeg"));
-		} catch (IOException e) {
+			url = new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/255px-Flag_of_Serbia.svg.png");
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		return img;
+		try {
+			image = ImageIO.read(url);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return image;
 	}
 	
 	public String getPlayer(int number) {
 		numberOfCalls++;
 		FileWriter writeFile = null;
 		JSONObject objetoJson = new JSONObject();
-		
 		for (Jogador jor: jogadores) {
 		objetoJson.put("number", jor.getNumero());
 		objetoJson.put("name", jor.getNome());
