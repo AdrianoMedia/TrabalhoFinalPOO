@@ -1,0 +1,30 @@
+package fifa;
+
+/**
+ * Interface que retorna estatísticas sobre as consultas efetuadas por meio da interface NationalTeamInfos a uma seleção participante da Copa do Mundo 2022.
+ * <br>
+ * <br>Desenvolvido em Java 11.
+ * 
+ * @author Marcel Hugo e turma de POO 22/2 (BCC)
+ *
+ * @version 1.0.1
+ *
+ */
+
+public interface NationalTeamStats {
+	/**
+	 * Método para retornar a quantidade de vezes que os métodos que foram chamados externamente (interface NationalTeamInfos) em todas as execuções da classe representado a seleção participante.
+	 * @return int - quantidade de chamadas de todos os métodos.
+	 * 
+	*/
+	int getHowManyQuestions();
+	
+	/**
+	 * Método para retornar a quantidade de consultas sobre um determinado jogador (método getPlayer). 
+	 * <br>
+	 * @param number (int) - número do jogador
+	 * @return int - quantidade de vezes que o método getPlayer foi acionado para o jogador indicado.
+	*/
+	int getHowManyCallsToPlayer(int number);
+
+}
