@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,10 +22,11 @@ import fifa.NationalTeamInfos;
 import fifa.NationalTeamStats;
 
 public class Servia implements NationalTeamInfos, NationalTeamStats {
-	private ArrayList<Jogador> jogadores = new ArrayList<>();
+	private ArrayList<Jogador> jogadores = new 	ArrayList<>();
 	private ArrayList<Dirigente> dirigentes = new ArrayList<>();
 	private ArrayList<ComissaoTecnica> comissao = new ArrayList<>();
 	private int numberOfCalls;
+	private int vezesChamada;
 	
 	public Servia() {
 		super();
@@ -36,13 +39,6 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 	public void setNumberOfCalls(int numberOfCalls) {
 		this.numberOfCalls = numberOfCalls;
 	}
-
-
-	 
-	//public void addJogador() {
-	//}
-	
-	
 	
 	public ArrayList<Jogador> getJogadores() {
 		return this.jogadores;
@@ -52,38 +48,32 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		return this.dirigentes;
 	}
 	
-	//public void addDirigente() {
-	//}
-	
 	public ArrayList<ComissaoTecnica> getComissao() {
 		return this.comissao;
 	}
-	
-	//public void addComissaoTecnica() {
-	//}
-	
+
 	public int getHowManyMembers() {
-		Jogador j1 = new Jogador(1, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(1992 , 10 , 2), "goalkeeper", "Flamengo");
+		Jogador j1 = new Jogador(1, "Marko Dmitrovic", "Marko", 180, 80, 30, LocalDate.of(1992 , 10 , 2), "goalkeeper", "Flamengo", 0);
 		jogadores.add(j1);
-		Jogador j2 = new Jogador(2, "Giorge Rossovsk", "Giorgo", 185, 76, 20, LocalDate.of(1990 , 12 , 1), "defender", "Corinthians");
+		Jogador j2 = new Jogador(2, "Giorge Rossovsk", "Giorgo", 185, 76, 32, LocalDate.of(1990 , 12 , 1), "defender", "Corinthians", 0);
 		jogadores.add(j2);
-		Jogador j3 = new Jogador(3, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(1991 , 12 , 31), "defender", "Juventus");
+		Jogador j3 = new Jogador(3, "Flip Mladenvic", "Filip", 173, 70, 31, LocalDate.of(1991 , 12 , 31), "defender", "Juventus", 0);
 		jogadores.add(j3);
-		Jogador j4 = new Jogador(4, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(1998 , 2 , 3), "defender", "Vasco");
+		Jogador j4 = new Jogador(4, "Luka Jovic", "Luka", 164, 67, 24, LocalDate.of(1998 , 2 , 3), "defender", "Vasco", 0);
 		jogadores.add(j4);
-		Jogador j5 = new Jogador(5, "Marko Dmitrovic", "Marko", 180, 80, 69, LocalDate.of(1995 , 2 , 20), "left-back", "Liverpool");
+		Jogador j5 = new Jogador(5, "Sus Amongov", "Sus", 196, 82, 27, LocalDate.of(1995 , 2 , 20), "left-back", "Liverpool", 0);
 		jogadores.add(j5);
-		Jogador j6 = new Jogador(6, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(2000 , 06 , 24), "defensive-midfielder", "Legia Warszawa");
+		Jogador j6 = new Jogador(6, "Uros Racic", "Uros", 184, 78, 22, LocalDate.of(2000 , 06 , 24), "defensive-midfielder", "Legia Warszawa", 0);
 		jogadores.add(j6);
-		Jogador j7 = new Jogador(7, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(2001 , 11 , 16), "defensive-midfielder", "Crvena Zvezda");
+		Jogador j7 = new Jogador(7, "Ivan Ilic", "Ivan", 171, 66, 21, LocalDate.of(2001 , 11 , 16), "defensive-midfielder", "Crvena Zvezda", 0);
 		jogadores.add(j7);
-		Jogador j8 = new Jogador(8, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(2001 , 9 , 11), "midfield", "Porto");
+		Jogador j8 = new Jogador(8, "Sasa Lukic", "Sasa", 172, 66, 21, LocalDate.of(2001 , 9 , 11), "midfield", "Porto", 0);
 		jogadores.add(j8);
-		Jogador j9 = new Jogador(9, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(1997 , 1 , 14), "midfield", "Fiorentina");
+		Jogador j9 = new Jogador(9, "Darko Lazovic", "Darka", 169, 70, 25, LocalDate.of(1997 , 1 , 14), "midfield", "Fiorentina", 0);
 		jogadores.add(j9);
-		Jogador j10 = new Jogador(10, "Marko Dmitrovic", "Marko", 180, 80, 22, LocalDate.of(2004 , 06 , 30), "center-forward", "Juventus");
+		Jogador j10 = new Jogador(10, "Nemanja Rodonjic", "Ne", 170, 72, 18, LocalDate.of(2004 , 06 , 30), "center-forward", "Juventus", 0);
 		jogadores.add(j10);
-		Jogador j11 = new Jogador(11, "Chip", "Jorge", 111, 89, 60, LocalDate.of(2000 , 5 , 23), "center-forward", "Vasco");
+		Jogador j11 = new Jogador(11, "Filip Drugovic", "Drugo", 177, 78, 22, LocalDate.of(2000 , 5 , 23), "center-forward", "Vasco", 0);
 		jogadores.add(j11);
 		ComissaoTecnica ct1 = new ComissaoTecnica("Dragan Stojkovic", "Drogon", "Couch", 57);
 		comissao.add(ct1);
@@ -159,16 +149,20 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		numberOfCalls++;
 		FileWriter writeFile = null;
 		JSONObject objetoJson = new JSONObject();
-		for (Jogador jor: jogadores) {
-		objetoJson.put("number", jor.getNumero());
-		objetoJson.put("name", jor.getNome());
-		objetoJson.put("nickname", jor.getApelido());
-		objetoJson.put("height", jor.getAltura());
-		objetoJson.put("weigth", jor.getPeso());
-		objetoJson.put("birthDate", jor.getDataAniver());
-		objetoJson.put("position", jor.getPosicao());
-		objetoJson.put("currentClub", jor.getClubAtual());
-		numberOfCalls++;
+			for (Jogador jor: jogadores) {
+				if (number == jor.getNumero() || number == jor.getNumero() || number == jor.getNumero() || number == jor.getNumero() 
+						|| number == jor.getNumero() || number == jor.getNumero() || number == jor.getNumero() || number == jor.getNumero() 
+						|| number == jor.getNumero() || number == jor.getNumero() || number == jor.getNumero()) {
+				objetoJson.put("number", jor.getNumero());
+				objetoJson.put("name", jor.getNome());
+				objetoJson.put("nickname", jor.getApelido());
+				objetoJson.put("height", jor.getAltura());
+				objetoJson.put("weigth", jor.getPeso());
+				objetoJson.put("birthDate", jor.getDataAniver());
+				objetoJson.put("position", jor.getPosicao());
+				objetoJson.put("currentClub", jor.getClubAtual());
+				jor.setContador(+1);
+		}
 		}
 		try {
 			writeFile = new FileWriter("Dados_Jogadores.json");
@@ -190,7 +184,6 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		objJson.put("tel1", dir.getTelefone());
 		objJson.put("tel2", dir.getTelefone());
 		objJson.put("emailAccount", dir.getEmail());
-		numberOfCalls++;
 		}
 		try {
 			escrever = new FileWriter("Dados_Assessor_da_Imprensa.json");
@@ -214,7 +207,6 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 		objeJson.put("nickname", ct.getApelido());
 		objeJson.put("role", ct.getRole());
 		objeJson.put("age", ct.getIdade());
-		numberOfCalls++;
 		}
 		try {
 			write = new FileWriter("Dados_Comissao_Tecnica.json");
@@ -239,6 +231,10 @@ public class Servia implements NationalTeamInfos, NationalTeamStats {
 	}
 	
 	public int getHowManyCallsToPlayer(int number) {
-		return 0;
+		int teste = 0;
+		for (Jogador jor: jogadores) {
+			teste = jor.getContador();
+	}
+		return teste;
 	}
 }
