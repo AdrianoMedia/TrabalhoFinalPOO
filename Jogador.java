@@ -12,9 +12,10 @@ public class Jogador extends Servia {
 	private String posicion;
 	private String currentClub;
 	private int contador;
+
 	
 	public Jogador(int number, String name, String nickname, float height, float weight, int age,
-			 LocalDate birthDate, String posicion, String currentClub, int contador) {
+			 LocalDate birthDate, String posicion, String currentClub) {
 		super();
 		this.setAltura(height);
 		this.setApelido(nickname);
@@ -25,15 +26,14 @@ public class Jogador extends Servia {
 		this.setNome(name);
 		this.setPosicao(posicion);
 		this.setNumero(number);
-		this.setContador(contador);
 	}
 	
 	public int getContador() {
 		return contador;
 	}
 
-	public void setContador(int contador) {
-		this.contador = contador;
+	public void addContador() {
+		this.contador++;
 	}
 
 
