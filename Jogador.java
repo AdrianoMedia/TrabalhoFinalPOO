@@ -11,21 +11,33 @@ public class Jogador extends Servia {
 	private LocalDate birthDate;
 	private String posicion;
 	private String currentClub;
+	private int contador;
 	
-	public Jogador(int number, String name, String nickname, float height, float weigth, int age,
-			 LocalDate birthDate, String posicion, String currentClub) {
+	public Jogador(int number, String name, String nickname, float height, float weight, int age,
+			 LocalDate birthDate, String posicion, String currentClub, int contador) {
 		super();
 		this.setAltura(height);
 		this.setApelido(nickname);
 		this.setClubAtual(currentClub);
 		this.setDataAniver(birthDate);
 		this.setIdade(age);
-		this.setPeso(weight);
+		this.setWeight(weight);
 		this.setNome(name);
 		this.setPosicao(posicion);
 		this.setNumero(number);
+		this.setContador(contador);
 	}
 	
+	public int getContador() {
+		return contador;
+	}
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+
+
+
 	public int getNumero() {
 		return number;
 	}
@@ -69,12 +81,12 @@ public class Jogador extends Servia {
 		this.height = altura;
 		}
 	}
-	public float getPeso() {
+	public float getWeight() {
 		return weight;
 	}
-	public void setPeso(float peso) {
-		if (peso > 0) {
-		this.weight = peso;
+	public void setWeight(float weight) {
+		if (weight > 0) {
+		this.weight = weight;
 		}
 	}
 	public LocalDate getDataAniver() {
